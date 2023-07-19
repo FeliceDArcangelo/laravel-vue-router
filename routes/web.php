@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Guess\CocktailController;
+use App\Http\Controllers\Guess\CocktailDeleteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +14,3 @@ use App\Http\Controllers\Guess\CocktailController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-    Route::get('/',         [CocktailController::class, 'home'])->name('home');
-    Route::resource('cocktails', CocktailController::class);
-
