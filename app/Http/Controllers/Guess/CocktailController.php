@@ -15,7 +15,8 @@ class CocktailController extends Controller
      */
     public function index()
     {
-        //
+        $cocktails = Cocktail::paginate(3); 
+        return view('cocktails.index', compact('cocktails'));
     }
 
     /**
@@ -25,7 +26,7 @@ class CocktailController extends Controller
      */
     public function create()
     {
-        //
+        return view("cocktails.create");
     }
 
     /**
@@ -47,7 +48,7 @@ class CocktailController extends Controller
      */
     public function show(Cocktail $cocktail)
     {
-        //
+        return view("cocktails.show", compact("cocktail"));
     }
 
     /**
@@ -58,7 +59,7 @@ class CocktailController extends Controller
      */
     public function edit(Cocktail $cocktail)
     {
-        //
+        return view("cocktails.edit", compact("cocktail"));
     }
 
     /**
@@ -82,5 +83,11 @@ class CocktailController extends Controller
     public function destroy(Cocktail $cocktail)
     {
         //
+    }
+
+    public function home()
+    {
+        $cocktails = Cocktail::all();
+        return view('home',compact('cocktails'));
     }
 }
