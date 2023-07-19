@@ -14,12 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('cocktails', function (Blueprint $table) {
-            $table->string("idDrink", 5);
+            $table->string("idDrink", 10);
             $table->string("strDrink", 100);
             $table->string("strCategory", 50);
             $table->string("strAlcoholic", 30);
             $table->string("strGlass", 30);
             $table->text("strInstructions");
+            $table->text("strInstructionsIT");
             $table->text("strDrinkThumb");
             $table->id();
        
