@@ -14,6 +14,7 @@ class CocktailController extends Controller
         return response()->json($cocktails);
     }
 
+<<<<<<< HEAD
     public function show(Cocktail $cocktail)
     {
         $cocktail = Cocktail::where('id', $cocktail)->first();
@@ -24,5 +25,14 @@ class CocktailController extends Controller
         ]);
 
         // return view("cocktails.show", compact("cocktail"));
+=======
+
+    public function show(Cocktail $cocktail)
+    {
+        return response()->json([
+            'success' => true,
+            'results' => $cocktail,
+        ]);
+>>>>>>> origin/loris
     }
 }
