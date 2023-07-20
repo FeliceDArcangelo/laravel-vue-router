@@ -17,9 +17,4 @@ use App\Models\Cocktail;
 */
 
 Route::get('cocktails', [CocktailController::class, 'index'])->name('cocktails.index');
-<<<<<<< HEAD
-
-Route::get('projects/{project}', [CocktailController::class, 'show'])->name('api.cocktails.show');
-=======
 Route::get('cocktails/{cocktail}', [CocktailController::class, 'show'])->name('api.cocktails.show');
->>>>>>> origin/loris
