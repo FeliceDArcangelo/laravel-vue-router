@@ -16,3 +16,4 @@ use App\Http\Controllers\Api\CocktailController;
 */
 
 Route::get('cocktails', [CocktailController::class, 'index'])->name('cocktails.index');
+Route::get('cocktails/{cocktail}', [CocktailController::class, 'show'])->name('api.cocktails.show');
