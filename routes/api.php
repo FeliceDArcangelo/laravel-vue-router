@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\CocktailController;
+use App\Models\Cocktail;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,5 @@ use App\Http\Controllers\Api\CocktailController;
 */
 
 Route::get('cocktails', [CocktailController::class, 'index'])->name('cocktails.index');
+
+Route::get('projects/{project}', [CocktailController::class, 'show'])->name('api.cocktails.show');

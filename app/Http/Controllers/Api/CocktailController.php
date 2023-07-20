@@ -10,15 +10,19 @@ class CocktailController extends Controller
 {
     public function index()
     {
-        $cocktails = Cocktail::paginate(3); 
+        $cocktails = Cocktail::paginate(3);
         return response()->json($cocktails);
     }
 
-    
     public function show(Cocktail $cocktail)
     {
-        return view("cocktails.show", compact("cocktail"));
+        $cocktail = Cocktail::where('id', $cocktail)->first();
+
+        return response()->json([
+            'success' => $cocktail ? true : false,
+            'results' => $cocktail,
+        ]);
+
+        // return view("cocktails.show", compact("cocktail"));
     }
-
 }
-
