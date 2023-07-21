@@ -8,11 +8,20 @@ use App\Http\Controllers\Controller;
 
 class CocktailController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        
-        $cocktails = Cocktail::paginate(3);
-        return response()->json($cocktails);
+
+        $category = $request->query('category');
+        if ($category) {
+            $cocktails = Cocktail::where('strCategory', $category)->get();
+        } else {
+            $cocktails = Cocktail::all();
+        }
+
+        return response()->json([
+            'success'    => true,
+            'results'    => $cocktails,
+        ]);
     }
 
 

@@ -11,19 +11,13 @@ class CategoryController extends Controller
 {
     public function index(Request $request) {
         // $categories = Cocktail::groupBy('strCategory')->get();
-        $categories = $request->query('category');
 
-        $query = Cocktail::all();
+        $category = Cocktail::select('strCategory')->groupBy('strCategory')->get();
 
-        if ($categories) {
-            $query = $query->where('strCategory', $categories);
-        }
-
-        $post = $query->paginate(3);
 
         return response()->json([
             'success' => true,
-            'results' => $post,
+            'results' => $category,
         ]);
     }
 }
